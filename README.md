@@ -12,6 +12,8 @@ This is a SaaS project for loading PDFs and using AI to interpret and synthesize
 - [Vercel](https://vercel.com/) for deployment
 - [clsx](https://github.com/lukeed/clsx#readme) to conditionally apply classNames
 - [shadcn/ui](https://ui.shadcn.com/) as the ui library
+- [tRPC](https://trpc.io/docs/client/nextjs/setup) for boost productivity in full-stack applications with Typescript
+- [NEON](https://neon.tech/) as db host
 
 ## Guide
 
