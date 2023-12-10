@@ -10,6 +10,8 @@ This is a SaaS project for loading PDFs and using AI to interpret and synthesize
 - [Tailwindcss](https://tailwindcss.com/) as the CSS framework
 - [TypeScript](https://www.typescriptlang.org/) as the programming language
 - [Vercel](https://vercel.com/) for deployment
+- [clsx](https://github.com/lukeed/clsx#readme) to conditionally apply classNames
+- [shadcn/ui](https://ui.shadcn.com/) as the ui library
 
 ## Guide
 
