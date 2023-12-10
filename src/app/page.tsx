@@ -10,14 +10,14 @@ export default function Home() {
       <MaxWidthWrapper className="mb-12 mt-20 sm:mt-40 flex flex-col items-center justify-center text-center">
         <div className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
           <p className="text-sm font-semibold text-gray-700">
-            Agora is now public!
+            aGora is now public!
           </p>
         </div>
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
           Chat with your <span className="text-blue-600">documents</span> in seconds.
         </h1>
         <p className="mt-5 max-w-prose text-zinc-700 sm:text-lg">
-          Agora allows you to have conversations with any PDF document. Simply upload your file and start asking questions right away.
+          AGora allows you to have conversations with any PDF document. Simply upload your file and start asking questions right away.
         </p>
         <Link 
           className={buttonVariants({
@@ -76,7 +76,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">Start chatting in minutes</h2>
             <p className="mt-4 text-lg text-gray-600">
-              Chattin to your PDF files has never been easier than with Agora.
+              Chattin to your PDF files has never been easier than with aGora.
             </p>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function Home() {
             <div className="flex flex-col space-y2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
               <span className="text-sm font-medium text-blue-600">Step 3</span>
               <span className="text-xl font-semibold">Start asking questions</span>
-              <span className="mt-2 text-zinc-700">It&apos;s simple. Try out Agora today - it really takes less than a minute.</span>
+              <span className="mt-2 text-zinc-700">It&apos;s simple. Try out aGora today - it really takes less than a minute.</span>
             </div>
           </li>
         </ol>
