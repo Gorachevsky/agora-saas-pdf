@@ -17,4 +17,4 @@ This is a SaaS project for loading PDFs and using AI to interpret and synthesize
 
 ## Guide
 
-You can follow the official guide [here.](https://youtu.be/ucX2zXAZ1I0?si=L3ODsDTZiaVILZ-z&t=8569)
+You can follow the official guide [here.](https://youtu.be/ucX2zXAZ1I0?si=jQ6Pp3aRMbo2PAyp&t=12274)
