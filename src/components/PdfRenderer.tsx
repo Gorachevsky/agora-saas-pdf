@@ -136,8 +136,6 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               });
             }}
             onLoadSuccess={({ numPages }) => {
-              console.log("LAURL", url);
-              console.log("LaRef", ref)
               setNumPages(numPages);
             }}
             file={url}
