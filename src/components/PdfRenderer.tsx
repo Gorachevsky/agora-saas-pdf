@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown, ChevronUp, Loader2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Loader2, Search } from "lucide-react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
+import {  DropdownMenu, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -21,14 +22,17 @@ interface PdfRendererProps {
 }
 
 const PdfRenderer = ({ url }: PdfRendererProps) => {
-
   const { toast } = useToast();
 
   const [numPages, setNumPages] = useState<number>();
   const [currPage, setCurrPage] = useState<number>(1);
 
   const CustomPageValidator = z.object({
-    page: z.string().refine((num) => Number(num) > 0 && Number(num) <= numPages!)
+    page: z
+      .string()
+      .refine(
+        (num) => Number(num) > 0 && Number(num) <= numPages!
+      ),
   });
 
   type TCustomPageValidator = z.infer<typeof CustomPageValidator>
@@ -59,7 +63,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           <Button 
             disabled={currPage <= 1}
             onClick={() => {
-              setCurrPage((prev) => prev - 1 > 1 ? prev - 1 : 1)
+              setCurrPage((prev) => prev - 1 > 1 ? prev - 1 : 1);
+              setValue('page', String(currPage - 1));
             }}
             variant="ghost"
             aria-label="previous page"
@@ -89,13 +94,28 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               currPage === numPages
             }
             onClick={() => {
-              setCurrPage((prev) => prev + 1 > numPages! ? numPages! : prev + 1)
+              setCurrPage((prev) => prev + 1 > numPages! ? numPages! : prev + 1);
+              setValue('page', String(currPage + 1));
             }}
             variant="ghost"
             aria-label="previous page"
           >
             <ChevronUp className="h-4 w-4" />
           </Button>
+        </div>
+
+        <div className="space-x-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                aria-label="zoom" 
+                variant="ghost"
+                className="gap-1.5"
+              >
+                <Search className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+          </DropdownMenu>
         </div>
       </div>
 
@@ -108,6 +128,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               </div>
             }
             onLoadError={() => {
+              console.error
               toast({
                 title: "Error loading PDF",
                 description: "Please try again later",
@@ -115,6 +136,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               });
             }}
             onLoadSuccess={({ numPages }) => {
+              console.log("LAURL", url);
+              console.log("LaRef", ref)
               setNumPages(numPages);
             }}
             file={url}
