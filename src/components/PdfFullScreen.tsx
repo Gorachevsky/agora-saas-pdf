@@ -23,7 +23,10 @@ const PdfFullScreen = ({fileUrl}: PdfFullScreenProps) => {
         setIsOpen(visible);
       }
     }}>
-      <DialogTrigger asChild>
+      <DialogTrigger 
+        onClick={() => setIsOpen(true)}
+        asChild
+      >
         <Button
           className="gap-1.5"
           variant="ghost"
