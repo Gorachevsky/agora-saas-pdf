@@ -36,7 +36,6 @@ export const ourFileRouter = {
         const loader = new PDFLoader(blob);
 
         const pageLevelDocs = await loader.load();
-        const pagesAmt = pageLevelDocs.length;
 
         //vectorize and index entire document
 
