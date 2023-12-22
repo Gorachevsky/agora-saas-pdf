@@ -20,7 +20,7 @@ const Navbar = async () => {
           </Link>
 
           {/* todo: add mobile navbar */}
-          <MobileNav />
+          <MobileNav isAuth={!!user} />
 
           <div className="hidden items-center space-x-4 sm:flex">
             {!user ? (
