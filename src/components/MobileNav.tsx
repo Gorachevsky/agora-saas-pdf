@@ -14,7 +14,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 
   useEffect(() => {
     if(isOpen) toggleOpen();
-  }, [pathname, isOpen]);
+  }, [pathname]);
 
   const closeOnCurrent = (href: string) => {
     if(pathname === href) {
@@ -51,8 +51,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     className="flex items-center w-full font-semibold"
                     href="/sign-in"
                   >
-                    Sign in{" "}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Sign in
                   </Link>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />
@@ -62,13 +61,31 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     className="flex items-center w-full font-semibold"
                     href="/pricing"
                   >
-                    Pricing{" "}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Pricing
                   </Link>
                 </li>
               </>
             ) : (
-              <></>
+              <>
+                <li>
+                  <Link
+                    onClick={() => closeOnCurrent("/dashboard")}
+                    className="flex items-center w-full font-semibold"
+                    href="/dashboard"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="my-3 h-px w-full bg-gray-300" />
+                <li>
+                  <Link
+                    className="flex items-center w-full font-semibold"
+                    href="/sign-out"
+                  >
+                    Sign out
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
