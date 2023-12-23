@@ -32,9 +32,14 @@ const onUploadComplete = async ({
     url: string
   }
 }) => {
-      return {userId: user.id};
-    })
-    .onUploadComplete(async ({ metadata, file }) => {
+
+  const isFileExist = await db.file.findFirst({
+    where: {
+      key: file.key,
+    },
+  });
+
+  if (isFileExist) return;
 
   const createdFile = await db.file.create({
     data: {
