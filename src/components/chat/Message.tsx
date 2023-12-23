@@ -71,7 +71,8 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
               message.text
             )}
             {message.id !== "loading-message" ? (
-              <div
+              <time
+                dateTime={message.createdAt}
                 className={cn(
                   "text-xs select-none mt-2 w-full text-right",
                   {
@@ -83,7 +84,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
                   new Date(message.createdAt),
                   "HH:mm"
                 )}
-              </div>
+              </time>
             ) : null}
           </div>
         </div>
