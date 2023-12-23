@@ -8,8 +8,13 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import { getUserSubscriptionPlan } from "@/lib/stripe";
 
-const Dashboard = () => {
+interface DashboardProps {
+  subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
+}
+
+const Dashboard = ({ subscriptionPlan }: DashboardProps) => {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<string | null>(null);
   const utils = trpc.useUtils();
   const { data: files, isLoading } = trpc.getUserFiles.useQuery();
@@ -29,7 +34,7 @@ const Dashboard = () => {
     <main className="mx-auto max-w7xl md:p-10">
       <div className="mt-8 flex flex-col items-start justify-between gap-4 border-b border-gray-200 pb-5 sm:flex-row sm:items-center sm:gap-0">
         <h1 className="mb-3 font-bold text-5xl text-gray-900">My Files</h1>
-        <UploadButton />
+        <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
       </div>
 
       {/* display all user files */}
@@ -58,7 +63,7 @@ const Dashboard = () => {
               <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-zinc-500">
                 <div className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
-                  {format(new Date(file.createdAt), "MMM yyyy")}
+                  <time dateTime={file.createdAt}>{format(new Date(file.createdAt), "MMM yyyy")}</time>
                 </div>
                 <div className="flex items-center gap-2">
                   <MessageSquare className="h-4 w-4" />
