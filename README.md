@@ -15,7 +15,3 @@ This is a SaaS project for loading PDFs and using AI to interpret and synthesize
 - [tRPC](https://trpc.io/docs/client/nextjs/setup) for boost productivity in full-stack applications with Typescript
 - [NEON](https://neon.tech/) as db host
 - [Pinecone](https://www.pinecone.io/) as vector database for AI
-
-## Guide
-
-You can follow the official guide [here.](https://youtu.be/ucX2zXAZ1I0)
